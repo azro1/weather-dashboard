@@ -80,20 +80,23 @@ const WeatherRadar = ({ currentWeather }) => {
       <CardContent className="p-6 space-y-6">
         {/* Radar Display */}
         <div className={`h-64 md:h-80 bg-gradient-to-br ${intensityColors[intensity]} rounded-2xl flex items-center justify-center border border-white/20 relative overflow-hidden`}>
-          {/* Animated Background Patterns */}
-          <div className="absolute inset-0">
+          {/* Animated Radar Sweep (Ping) - perfectly round and centered */}
+          <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             {[...Array(3)].map((_, i) => (
-              <div
+              <span
                 key={i}
-                className={`absolute inset-0 border-2 rounded-full ${
+                className={`absolute block border-2 rounded-full ${
                   intensity === 'high' ? 'border-red-400/30' :
                   intensity === 'medium' ? 'border-yellow-400/30' :
                   'border-emerald-400/30'
                 } animate-ping`}
                 style={{
+                  width: `calc(100% - ${i * 40}px)`,
+                  height: `calc(100% - ${i * 40}px)`,
+                  left: `${i * 20}px`,
+                  top: `${i * 20}px`,
                   animationDelay: `${i * 0.5}s`,
-                  animationDuration: '2s',
-                  margin: `${20 + i * 20}px`
+                  animationDuration: '2s'
                 }}
               />
             ))}
@@ -162,7 +165,7 @@ const WeatherRadar = ({ currentWeather }) => {
         <div className="flex items-center justify-center gap-4">
           <Button
             onClick={handlePlayPause}
-            className={`px-6 py-3 rounded-xl font-medium transition-all duration-300 ${
+            className={`flex gap-1 px-4 rounded-xl font-medium transition-all duration-300 ${
               isPlaying 
                 ? 'bg-gradient-to-r from-red-500 to-pink-600 hover:from-red-600 hover:to-pink-700 text-white'
                 : 'bg-gradient-to-r from-emerald-500 to-cyan-600 hover:from-emerald-600 hover:to-cyan-700 text-white'
@@ -170,12 +173,12 @@ const WeatherRadar = ({ currentWeather }) => {
           >
             {isPlaying ? (
               <>
-                <Pause className="h-4 w-4 mr-2" />
+                <Pause className="h-4 w-4" />
                 Pause
               </>
             ) : (
               <>
-                <Play className="h-4 w-4 mr-2" />
+                <Play className="h-4 w-4" />
                 Play
               </>
             )}
@@ -184,9 +187,9 @@ const WeatherRadar = ({ currentWeather }) => {
           <Button
             onClick={handleReset}
             variant="outline"
-            className="px-6 py-3 bg-white/5 border-white/20 text-white hover:bg-white/10 hover:border-white/30 rounded-xl font-medium transition-all duration-300"
+            className="flex gap-1 px-4 bg-white/5 border-white/20 text-white hover:bg-white/10 hover:border-white/30 rounded-xl font-medium transition-all duration-300"
           >
-            <RotateCcw className="h-4 w-4 mr-2" />
+            <RotateCcw className="h-4 w-4" />
             Reset
           </Button>
         </div>
@@ -211,20 +214,20 @@ const WeatherRadar = ({ currentWeather }) => {
         {currentWeather && (
           <div className="p-4 rounded-xl bg-white/5 border border-white/10">
             <div className="text-sm text-gray-400 mb-2">Current Conditions</div>
-            <div className="grid grid-cols-2 gap-4 text-sm">
-              <div className="flex justify-between">
+            <div className="flex flex-col gap-1 text-sm md:flex-row justify-between">
+              <div className="flex gap-2">
                 <span className="text-gray-300">Condition:</span>
                 <span className="text-white font-medium capitalize">{currentWeather.description}</span>
               </div>
-              <div className="flex justify-between">
+              <div className="flex gap-2">
                 <span className="text-gray-300">Cloudiness:</span>
                 <span className="text-white font-medium">{currentWeather.cloudiness}%</span>
               </div>
-              <div className="flex justify-between">
+              <div className="flex gap-2">
                 <span className="text-gray-300">Wind Speed:</span>
                 <span className="text-white font-medium">{currentWeather.windSpeed} km/h</span>
               </div>
-              <div className="flex justify-between">
+              <div className="flex gap-2">
                 <span className="text-gray-300">Visibility:</span>
                 <span className="text-white font-medium">{currentWeather.visibility} km</span>
               </div>

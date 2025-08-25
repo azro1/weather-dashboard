@@ -5,7 +5,7 @@ import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { MapPin, Thermometer, CloudRain, Wind, Gauge } from 'lucide-react';
+import { MapPin, Thermometer, CloudRain, Wind, Gauge, Cloud } from 'lucide-react';
 import 'leaflet/dist/leaflet.css';
 
 // Fix for default markers in react-leaflet
@@ -48,7 +48,7 @@ const WeatherMap = ({ currentWeather, onLocationSelect }) => {
     { id: 'precipitation', label: 'Precipitation', icon: CloudRain, color: 'from-blue-500 to-cyan-500' },
     { id: 'wind', label: 'Wind Speed', icon: Wind, color: 'from-emerald-500 to-teal-500' },
     { id: 'pressure', label: 'Pressure', icon: Gauge, color: 'from-purple-500 to-pink-500' },
-    { id: 'clouds', label: 'Cloud Cover', icon: MapPin, color: 'from-gray-500 to-slate-500' }
+    { id: 'clouds', label: 'Cloud Cover', icon: Cloud, color: 'from-gray-500 to-slate-500' }
   ];
 
   const WeatherOverlay = () => {
@@ -76,14 +76,14 @@ const WeatherMap = ({ currentWeather, onLocationSelect }) => {
               variant={activeLayer === layer.id ? "default" : "outline"}
               size="sm"
               onClick={() => setActiveLayer(layer.id)}
-              className={`p-3 transition-all duration-300 rounded-xl border ${
+              className={`p-3 flex gap-1.5 transition-all duration-300 rounded-xl border ${
                 activeLayer === layer.id
-                  ? `bg-gradient-to-r ${layer.color} text-white border-transparent shadow-lg scale-105`
+                  ? `bg-gradient-to-r ${layer.color} text-white border-transparent shadow-lg`
                   : 'bg-white/5 border-white/20 text-white hover:bg-white/10 hover:border-white/30'
               }`}
             >
-              <Icon className="h-4 w-4 mr-2" />
-              <span className="hidden sm:inline">{layer.label}</span>
+              <Icon className="inline" />
+              <span>{layer.label}</span>
             </Button>
           );
         })}
