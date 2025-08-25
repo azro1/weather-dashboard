@@ -1,7 +1,32 @@
 'use client';
 
 import { useState, useEffect } from 'react';
+import dynamic from 'next/dynamic';
 
+// Dynamically import map components to avoid SSR issues
+const WeatherMap = dynamic(() => import('@/components/weather-map'), { 
+  ssr: false,
+  loading: () => (
+    <div className="h-96 lg:h-[500px] bg-gradient-to-br from-blue-900/50 to-teal-900/50 rounded-2xl flex items-center justify-center border border-white/20">
+      <div className="text-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-4 border-emerald-500 border-t-transparent mx-auto mb-4"></div>
+        <p className="text-white font-semibold">Loading Interactive Map...</p>
+      </div>
+    </div>
+  )
+});
+
+const WeatherRadar = dynamic(() => import('@/components/weather-radar'), { 
+  ssr: false,
+  loading: () => (
+    <div className="h-64 md:h-80 bg-gradient-to-br from-emerald-900/50 to-cyan-900/50 rounded-2xl flex items-center justify-center border border-white/20">
+      <div className="text-center">
+        <div className="animate-spin rounded-full h-12 w-12 border-4 border-emerald-500 border-t-transparent mx-auto mb-4"></div>
+        <p className="text-white font-semibold">Loading Weather Radar...</p>
+      </div>
+    </div>
+  )
+});
 // Utility functions
 function getWindDirection(degrees) {
   if (!degrees && degrees !== 0) return 'N/A';
@@ -690,75 +715,12 @@ export default function WeatherDashboard() {
 
           {/* Maps Tab */}
           <TabsContent value="maps" className="space-y-8">
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
-              {/* Interactive Map */}
-              <Card className="bg-white/10 backdrop-blur-lg border-white/20 rounded-2xl shadow-xl">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-3 text-white text-xl font-semibold">
-                    <div className="p-2 bg-blue-500/20 rounded-xl">
-                      <MapPin className="h-5 w-5 text-blue-400" />
-                    </div>
-                    Weather Map
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="p-6 sm:p-8">
-                  <div className="aspect-video bg-gradient-to-br from-blue-900/50 to-teal-900/50 rounded-2xl flex items-center justify-center border border-white/20 mb-6">
-                    <div className="text-center">
-                      <div className="w-16 h-16 bg-blue-500/20 rounded-full flex items-center justify-center mx-auto mb-4">
-                        <MapPin className="h-8 w-8 text-blue-400 animate-pulse" />
-                      </div>
-                      <p className="text-white font-semibold text-lg mb-2">Interactive Weather Map</p>
-                      <p className="text-gray-400 text-sm">
-                        Lat: {currentWeather.coords.lat.toFixed(2)}, 
-                        Lon: {currentWeather.coords.lon.toFixed(2)}
-                      </p>
-                    </div>
-                  </div>
-                  <div className="grid grid-cols-2 gap-3">
-                    <Button variant="outline" size="sm" className="py-3 bg-white/5 border-white/20 text-white hover:bg-emerald-500/20 hover:border-emerald-400/40 transition-all duration-200 rounded-xl">
-                      Temperature
-                    </Button>
-                    <Button variant="outline" size="sm" className="py-3 bg-white/5 border-white/20 text-white hover:bg-cyan-500/20 hover:border-cyan-400/40 transition-all duration-200 rounded-xl">
-                      Precipitation
-                    </Button>
-                    <Button variant="outline" size="sm" className="py-3 bg-white/5 border-white/20 text-white hover:bg-blue-500/20 hover:border-blue-400/40 transition-all duration-200 rounded-xl">
-                      Wind Speed
-                    </Button>
-                    <Button variant="outline" size="sm" className="py-3 bg-white/5 border-white/20 text-white hover:bg-teal-500/20 hover:border-teal-400/40 transition-all duration-200 rounded-xl">
-                      Pressure
-                    </Button>
-                  </div>
-                </CardContent>
-              </Card>
 
-              {/* Radar */}
-              <Card className="bg-white/10 backdrop-blur-lg border-white/20 rounded-2xl shadow-xl">
-                <CardHeader>
-                  <CardTitle className="flex items-center gap-3 text-white text-xl font-semibold">
-                    <div className="p-2 bg-emerald-500/20 rounded-xl">
-                      <Activity className="h-5 w-5 text-emerald-400" />
-                    </div>
-                    Weather Radar
-                  </CardTitle>
-                </CardHeader>
-                <CardContent className="p-6 sm:p-8">
-                  <div className="h-48 md:h-auto md:aspect-video bg-gradient-to-br from-emerald-900/50 to-cyan-900/50 rounded-2xl flex items-center justify-center border border-white/20 relative overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-transparent via-emerald-400/10 to-transparent animate-pulse"></div>
-                    <div className="text-center z-10">
-                      <div className="relative">
-                        <div className="h-16 w-16 md:h-28 md:w-28 border-2 border-emerald-400/50 rounded-full mx-auto mb-4 md:mb-6 relative">
-                          <div className="absolute inset-2 border border-emerald-400/30 rounded-full animate-ping"></div>
-                          <div className="absolute inset-4 border border-emerald-400/20 rounded-full animate-ping animation-delay-500"></div>
-                          <div className="absolute top-1/2 left-1/2 w-1 h-8 md:h-10 bg-emerald-400 origin-bottom animate-spin" style={{transform: 'translate(-50%, -100%)'}}></div>
-                        </div>
-                      </div>
-                      <p className="text-white font-semibold text-base md:text-lg mb-1 md:mb-2">Live Weather Radar</p>
-                      <p className="text-gray-400 text-xs md:text-sm">Cloudiness: {currentWeather.cloudiness}%</p>
-                    </div>
-                  </div>
-                </CardContent>
-              </Card>
-            </div>
+            {/* Interactive Weather Map */}
+            <WeatherMap currentWeather={currentWeather} />
+            
+            {/* Weather Radar */}
+            <WeatherRadar currentWeather={currentWeather} />
           </TabsContent>
 
           {/* Analytics Tab */}
