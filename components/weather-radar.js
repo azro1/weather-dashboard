@@ -83,20 +83,18 @@ const WeatherRadar = ({ currentWeather }) => {
           {/* Animated Radar Sweep (Ping) - perfectly round and centered */}
           <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
             {[...Array(3)].map((_, i) => (
-              <span
+              <div
                 key={i}
-                className={`absolute block border-2 rounded-full ${
+                className={`absolute border-2 rounded-full ${
                   intensity === 'high' ? 'border-red-400/30' :
                   intensity === 'medium' ? 'border-yellow-400/30' :
                   'border-emerald-400/30'
                 } animate-ping`}
                 style={{
-                  width: `calc(100% - ${i * 40}px)`,
-                  height: `calc(100% - ${i * 40}px)`,
-                  left: `${i * 20}px`,
-                  top: `${i * 20}px`,
+                  width: `${120 + i * 40}px`,
+                  height: `${120 + i * 40}px`,
                   animationDelay: `${i * 0.5}s`,
-                  animationDuration: '2s'
+                  animationDuration: '3s'
                 }}
               />
             ))}
