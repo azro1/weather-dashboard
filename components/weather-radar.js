@@ -72,7 +72,7 @@ const WeatherRadar = ({ currentWeather }) => {
             intensity === 'high' ? 'bg-red-500/20 text-red-300 border-red-400/30' :
             intensity === 'medium' ? 'bg-yellow-500/20 text-yellow-300 border-yellow-400/30' :
             'bg-emerald-500/20 text-emerald-300 border-emerald-400/30'
-          } px-3 py-1 rounded-full`}>
+          } px-3 py-1 rounded-full text-center`}>
             {intensityLabels[intensity]}
           </Badge>
         </CardTitle>
