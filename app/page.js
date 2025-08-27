@@ -395,15 +395,15 @@ export default function WeatherDashboard() {
               <Activity className="inline" />
               <span>Overview</span>
             </TabsTrigger>
-            <TabsTrigger value="forecast" className="data-[state=active]:bg-orange-500/30 data-[state=active]:text-white text-gray-300 rounded-xl p-4 transition-all duration-300 border border-white/20">
+            <TabsTrigger value="forecast" className="data-[state=active]:bg-emerald-500/30 data-[state=active]:text-white text-gray-300 rounded-xl p-4 transition-all duration-300 border border-white/20">
               <Calendar className="inline" />
               <span>Forecast</span>
             </TabsTrigger>
-            <TabsTrigger value="maps" className="data-[state=active]:bg-teal-500/30 data-[state=active]:text-white text-gray-300 rounded-xl p-4 transition-all duration-300 border border-white/20">
+            <TabsTrigger value="maps" className="data-[state=active]:bg-emerald-500/30 data-[state=active]:text-white text-gray-300 rounded-xl p-4 transition-all duration-300 border border-white/20">
               <MapPin className="inline" />
               <span>Maps</span>
             </TabsTrigger>
-            <TabsTrigger value="analytics" className="data-[state=active]:bg-amber-500/30 data-[state=active]:text-white text-gray-300 rounded-xl p-4 transition-all duration-300 border border-white/20">
+            <TabsTrigger value="analytics" className="data-[state=active]:bg-emerald-500/30 data-[state=active]:text-white text-gray-300 rounded-xl p-4 transition-all duration-300 border border-white/20">
               <TrendingUp className="inline" />
               <span>Analytics</span>
             </TabsTrigger>
