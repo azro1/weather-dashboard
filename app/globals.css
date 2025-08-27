@@ -78,7 +78,7 @@
   }
   body {
     @apply bg-slate-900 text-foreground;
-    background: #0f172a; /* Fallback solid color */
+    background: #1a1625; /* Warmer dark purple fallback */
   }
 }
 
