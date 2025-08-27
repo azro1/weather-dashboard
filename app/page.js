@@ -305,18 +305,18 @@ export default function WeatherDashboard() {
   if (!currentWeather) return null;
 
   return (
-    <div className="min-h-screen bg-slate-900 bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 relative overflow-hidden">
+    <div className="min-h-screen bg-slate-900 bg-gradient-to-br from-purple-900 via-indigo-900 to-cyan-800 relative overflow-hidden">
       {/* Animated Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-emerald-500/10 rounded-full blur-3xl animate-pulse"></div>
-        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-cyan-500/10 rounded-full blur-3xl animate-pulse animation-delay-1000"></div>
-        <div className="absolute top-1/2 left-1/2 w-32 h-32 bg-teal-500/10 rounded-full blur-2xl animate-bounce"></div>
+        <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-pink-500/15 rounded-full blur-3xl animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-violet-500/15 rounded-full blur-3xl animate-pulse animation-delay-1000"></div>
+        <div className="absolute top-1/2 left-1/2 w-32 h-32 bg-amber-500/15 rounded-full blur-2xl animate-bounce"></div>
       </div>
 
       <div className="relative z-10 container mx-auto mt-8 px-4 sm:px-6 lg:px-8 py-6 sm:py-8 lg:py-12 max-w-7xl">
         {/* Header */}
         <div className="text-center mb-8 sm:mb-12">
-          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold bg-gradient-to-r from-emerald-400 via-cyan-400 to-blue-400 bg-clip-text text-transparent mb-4 sm:mb-6">
+          <h1 className="text-3xl sm:text-4xl lg:text-6xl font-bold bg-gradient-to-r from-pink-400 via-violet-400 to-cyan-400 bg-clip-text text-transparent mb-4 sm:mb-6">
             Weather Analytics Pro
           </h1>
           <p className="text-gray-300 text-base sm:text-lg lg:text-xl max-w-2xl mx-auto">
@@ -340,7 +340,7 @@ export default function WeatherDashboard() {
                 </div>
                 <Button 
                   type="submit"
-                  className="px-6 bg-gradient-to-r from-emerald-500 to-cyan-600 hover:from-emerald-600 hover:to-cyan-700 transition-all duration-300 rounded-xl font-medium text-white"
+                  className="px-6 bg-gradient-to-r from-pink-500 to-violet-600 hover:from-pink-600 hover:to-violet-700 transition-all duration-300 rounded-xl font-medium text-white"
                 >
                   Search
                 </Button>
@@ -356,10 +356,10 @@ export default function WeatherDashboard() {
                         variant="outline"
                         size="sm"
                         onClick={() => handleFavoriteClick(city)}
-                        className="px-4 py-2 bg-white/5 border-white/20 text-white hover:bg-emerald-500/20 hover:border-emerald-400/40 transition-all duration-200 rounded-lg relative"
+                        className="px-4 py-2 bg-white/5 border-white/20 text-white hover:bg-pink-500/20 hover:border-pink-400/40 transition-all duration-200 rounded-lg relative"
                         style={{ minWidth: 100 }}
                       >
-                        <Star fill="#DAA520" stroke="#DAA520" className="h-3 w-3 mr-2" />
+                        <Star fill="#f472b6" stroke="#f472b6" className="h-3 w-3 mr-2" />
                         {city}
                         <span
                           className="absolute top-1 right-1 cursor-pointer"
@@ -378,7 +378,7 @@ export default function WeatherDashboard() {
                     variant="outline"
                     size="sm"
                     onClick={addToFavorites}
-                    className="p-3 border-none text-white bg-gradient-to-r from-emerald-500 to-cyan-600 hover:from-emerald-600 hover:to-cyan-700 transition-all duration-300 rounded-lg"
+                    className="p-3 border-none text-white bg-gradient-to-r from-pink-500 to-violet-600 hover:from-pink-600 hover:to-violet-700 transition-all duration-300 rounded-lg"
                   >
                     + Add Current
                   </Button>
@@ -391,19 +391,19 @@ export default function WeatherDashboard() {
         {/* Main Content Tabs */}
         <Tabs value={activeTab} onValueChange={setActiveTab} className="space-y-8">
           <TabsList className="grid w-full grid-cols-2 sm:grid-cols-4 bg-white/10 backdrop-blur-lg border-white/20 rounded-2xl p-2 gap-2">
-            <TabsTrigger value="overview" className="data-[state=active]:bg-emerald-500/30 data-[state=active]:text-white text-gray-300 rounded-xl p-4 transition-all duration-300 border border-white/20">
+            <TabsTrigger value="overview" className="data-[state=active]:bg-pink-500/30 data-[state=active]:text-white text-gray-300 rounded-xl p-4 transition-all duration-300 border border-white/20">
               <Activity className="inline" />
               <span>Overview</span>
             </TabsTrigger>
-            <TabsTrigger value="forecast" className="data-[state=active]:bg-cyan-500/30 data-[state=active]:text-white text-gray-300 rounded-xl p-4 transition-all duration-300 border border-white/20">
+            <TabsTrigger value="forecast" className="data-[state=active]:bg-violet-500/30 data-[state=active]:text-white text-gray-300 rounded-xl p-4 transition-all duration-300 border border-white/20">
               <Calendar className="inline" />
               <span>Forecast</span>
             </TabsTrigger>
-            <TabsTrigger value="maps" className="data-[state=active]:bg-blue-500/30 data-[state=active]:text-white text-gray-300 rounded-xl p-4 transition-all duration-300 border border-white/20">
+            <TabsTrigger value="maps" className="data-[state=active]:bg-cyan-500/30 data-[state=active]:text-white text-gray-300 rounded-xl p-4 transition-all duration-300 border border-white/20">
               <MapPin className="inline" />
               <span>Maps</span>
             </TabsTrigger>
-            <TabsTrigger value="analytics" className="data-[state=active]:bg-teal-500/30 data-[state=active]:text-white text-gray-300 rounded-xl p-4 transition-all duration-300 border border-white/20">
+            <TabsTrigger value="analytics" className="data-[state=active]:bg-amber-500/30 data-[state=active]:text-white text-gray-300 rounded-xl p-4 transition-all duration-300 border border-white/20">
               <TrendingUp className="inline" />
               <span>Analytics</span>
             </TabsTrigger>
@@ -412,7 +412,7 @@ export default function WeatherDashboard() {
           {/* Overview Tab */}
           <TabsContent value="overview" className="space-y-8">
             {/* Current Weather Hero */}
-            <Card className="bg-gradient-to-br from-emerald-500/20 via-cyan-500/20 to-blue-600/20 backdrop-blur-lg border-white/20 rounded-3xl shadow-2xl overflow-hidden">
+            <Card className="bg-gradient-to-br from-pink-500/20 via-violet-500/20 to-cyan-600/20 backdrop-blur-lg border-white/20 rounded-3xl shadow-2xl overflow-hidden">
               <CardContent className="p-8 sm:p-10 lg:p-12">
                 <div className="flex flex-col lg:flex-row items-center justify-between gap-8 mb-10">
                   <div className="text-center lg:text-left">
@@ -420,7 +420,7 @@ export default function WeatherDashboard() {
                       <MapPin className="h-5 w-5 text-blue-400" />
                       <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-white">{currentWeather.location}</h2>
                     </div>
-                    <div className="text-6xl sm:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-emerald-400 to-cyan-400 bg-clip-text text-transparent mb-4">
+                    <div className="text-6xl sm:text-7xl lg:text-8xl font-bold bg-gradient-to-r from-pink-400 to-violet-400 bg-clip-text text-transparent mb-4">
                       {currentWeather.temperature}°C
                     </div>
                     <div className="text-lg sm:text-xl lg:text-2xl text-gray-300 capitalize mb-2">
@@ -438,7 +438,7 @@ export default function WeatherDashboard() {
                         className="h-24 w-24 sm:h-32 sm:w-32 lg:h-40 lg:w-40 drop-shadow-2xl mx-auto lg:mx-0"
                       />
                     )}
-                    <Badge className="mt-4 bg-emerald-500/20 text-emerald-300 border-emerald-400/30 px-4 py-2 rounded-full text-sm font-medium">
+                    <Badge className="mt-4 bg-pink-500/20 text-pink-300 border-pink-400/30 px-4 py-2 rounded-full text-sm font-medium">
                       {currentWeather.condition}
                     </Badge>
                   </div>
@@ -448,8 +448,8 @@ export default function WeatherDashboard() {
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                   <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 hover:bg-white/15 hover:scale-105 transition-all duration-300 group">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="p-2 bg-cyan-500/20 rounded-xl group-hover:bg-cyan-500/30 transition-colors duration-300">
-                        <Droplets className="h-5 w-5 text-cyan-400" />
+                      <div className="p-2 bg-violet-500/20 rounded-xl group-hover:bg-violet-500/30 transition-colors duration-300">
+                        <Droplets className="h-5 w-5 text-violet-400" />
                       </div>
                       <span className="text-gray-300 font-medium">Humidity</span>
                     </div>
@@ -462,8 +462,8 @@ export default function WeatherDashboard() {
 
                   <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 hover:bg-white/15 hover:scale-105 transition-all duration-300 group">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="p-2 bg-emerald-500/20 rounded-xl group-hover:bg-emerald-500/30 transition-colors duration-300">
-                        <Wind className="h-5 w-5 text-emerald-400" />
+                      <div className="p-2 bg-pink-500/20 rounded-xl group-hover:bg-pink-500/30 transition-colors duration-300">
+                        <Wind className="h-5 w-5 text-pink-400" />
                       </div>
                       <span className="text-gray-300 font-medium">Wind</span>
                     </div>
@@ -476,21 +476,21 @@ export default function WeatherDashboard() {
 
                   <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 hover:bg-white/15 hover:scale-105 transition-all duration-300 group">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="p-2 bg-blue-500/20 rounded-xl group-hover:bg-blue-500/30 transition-colors duration-300">
-                        <Eye className="h-5 w-5 text-blue-400" />
+                      <div className="p-2 bg-cyan-500/20 rounded-xl group-hover:bg-cyan-500/30 transition-colors duration-300">
+                        <Eye className="h-5 w-5 text-cyan-400" />
                       </div>
                       <span className="text-gray-300 font-medium">Visibility</span>
                     </div>
                     <div className="text-3xl font-bold text-white mb-3">{currentWeather.visibility} km</div>
-                    <Badge className="text-xs bg-blue-500/20 text-blue-200 border-blue-400/30 px-3 py-1 rounded-full">
+                    <Badge className="text-xs bg-cyan-500/20 text-cyan-200 border-cyan-400/30 px-3 py-1 rounded-full">
                       {currentWeather.visibility > 10 ? 'Excellent' : currentWeather.visibility > 5 ? 'Good' : 'Poor'}
                     </Badge>
                   </div>
 
                   <div className="bg-white/10 backdrop-blur-sm p-6 rounded-2xl border border-white/20 hover:bg-white/15 hover:scale-105 transition-all duration-300 group">
                     <div className="flex items-center gap-3 mb-4">
-                      <div className="p-2 bg-orange-500/20 rounded-xl group-hover:bg-orange-500/30 transition-colors duration-300">
-                        <Gauge className="h-5 w-5 text-orange-400" />
+                      <div className="p-2 bg-amber-500/20 rounded-xl group-hover:bg-amber-500/30 transition-colors duration-300">
+                        <Gauge className="h-5 w-5 text-amber-400" />
                       </div>
                       <span className="text-gray-300 font-medium">Pressure</span>
                     </div>
@@ -511,7 +511,7 @@ export default function WeatherDashboard() {
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3 text-white text-lg font-semibold">
                     <div className="p-2 bg-yellow-500/20 rounded-xl">
-                      <Sunrise className="h-5 w-5 text-yellow-400" />
+                      <Sunrise className="h-5 w-5 text-amber-400" />
                     </div>
                     Sun & Moon
                   </CardTitle>
@@ -519,7 +519,7 @@ export default function WeatherDashboard() {
                 <CardContent className="space-y-5 p-6">
                   <div className="flex justify-between items-center p-3 rounded-xl bg-white/5 hover:bg-white/10 transition-colors duration-200">
                     <div className="flex items-center gap-2">
-                      <Sunrise className="h-4 w-4 text-yellow-400" />
+                      <Sunrise className="h-4 w-4 text-amber-400" />
                       <span className="text-gray-300 font-medium">Sunrise</span>
                     </div>
                     <span className="text-white font-semibold">
@@ -558,8 +558,8 @@ export default function WeatherDashboard() {
                 <Card className="bg-white/10 backdrop-blur-lg border-white/20 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300">
                   <CardHeader>
                     <CardTitle className="flex items-center gap-3 text-white text-lg font-semibold">
-                      <div className="p-2 bg-emerald-500/20 rounded-xl">
-                        <Activity className="h-5 w-5 text-emerald-400" />
+                      <div className="p-2 bg-pink-500/20 rounded-xl">
+                        <Activity className="h-5 w-5 text-pink-400" />
                       </div>
                       Air Quality
                     </CardTitle>
@@ -568,7 +568,7 @@ export default function WeatherDashboard() {
                     <div className="text-center p-4 rounded-xl bg-white/5">
                       <div className="text-4xl font-bold text-white mb-2">{airQuality.aqi}</div>
                       <Badge className={`${
-                        airQuality.aqi <= 2 ? 'bg-emerald-500/20 text-emerald-300 border-emerald-400/30' :
+                        airQuality.aqi <= 2 ? 'bg-pink-500/20 text-pink-300 border-pink-400/30' :
                         airQuality.aqi <= 3 ? 'bg-yellow-500/20 text-yellow-300 border-yellow-400/30' :
                         'bg-red-500/20 text-red-300 border-red-400/30'
                       } px-4 py-2 rounded-full font-medium`}>
@@ -597,8 +597,8 @@ export default function WeatherDashboard() {
               <Card className="bg-white/10 backdrop-blur-lg border-white/20 rounded-2xl shadow-xl hover:shadow-2xl transition-all duration-300">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3 text-white text-lg font-semibold">
-                    <div className="p-2 bg-yellow-500/20 rounded-xl">
-                      <AlertTriangle className="h-5 w-5 text-yellow-400" />
+                    <div className="p-2 bg-amber-500/20 rounded-xl">
+                      <AlertTriangle className="h-5 w-5 text-amber-400" />
                     </div>
                     Weather Alerts
                   </CardTitle>
@@ -609,9 +609,9 @@ export default function WeatherDashboard() {
                       {weatherAlerts.map((alert, index) => (
                         <div key={index} className="p-4 rounded-xl bg-yellow-500/10 border border-yellow-400/30 hover:bg-yellow-500/15 transition-colors duration-200">
                           <div className="flex items-center gap-3 mb-2">
-                            <AlertTriangle className="h-4 w-4 text-yellow-400" />
-                            <span className="font-semibold text-yellow-300">{alert.type}</span>
-                            <Badge className="text-xs bg-yellow-500/20 text-yellow-300 border-yellow-400/30 px-2 py-1 rounded-full">
+                            <AlertTriangle className="h-4 w-4 text-amber-400" />
+                            <span className="font-semibold text-amber-300">{alert.type}</span>
+                            <Badge className="text-xs bg-amber-500/20 text-amber-300 border-amber-400/30 px-2 py-1 rounded-full">
                               {alert.severity}
                             </Badge>
                           </div>
@@ -621,8 +621,8 @@ export default function WeatherDashboard() {
                     </div>
                   ) : (
                     <div className="text-center py-8">
-                      <div className="w-12 h-12 bg-emerald-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
-                        <div className="text-emerald-400 text-xl">✓</div>
+                      <div className="w-12 h-12 bg-pink-500/20 rounded-full flex items-center justify-center mx-auto mb-3">
+                        <div className="text-pink-400 text-xl">✓</div>
                       </div>
                       <p className="text-gray-300 font-medium">No active weather alerts</p>
                       <p className="text-gray-400 text-sm mt-1">All clear conditions</p>
@@ -639,8 +639,8 @@ export default function WeatherDashboard() {
             <Card className="bg-white/10 backdrop-blur-lg border-white/20 rounded-2xl shadow-xl">
               <CardHeader>
                 <CardTitle className="flex items-center gap-3 text-white text-xl font-semibold">
-                  <div className="p-2 bg-cyan-500/20 rounded-xl">
-                    <Clock className="h-5 w-5 text-cyan-400" />
+                  <div className="p-2 bg-violet-500/20 rounded-xl">
+                    <Clock className="h-5 w-5 text-violet-400" />
                   </div>
                   24-Hour Forecast
                 </CardTitle>
@@ -656,7 +656,7 @@ export default function WeatherDashboard() {
                         className="h-10 w-10 mx-auto mb-3"
                       />
                       <div className="font-bold text-white text-lg mb-2">{hour.temp}°</div>
-                      <div className="text-xs text-cyan-300 bg-cyan-500/10 px-2 py-1 rounded-full">
+                      <div className="text-xs text-violet-300 bg-violet-500/10 px-2 py-1 rounded-full">
                         {hour.precipitation}% rain
                       </div>
                     </div>
@@ -669,8 +669,8 @@ export default function WeatherDashboard() {
             <Card className="bg-white/10 backdrop-blur-lg border-white/20 rounded-2xl shadow-xl">
               <CardHeader>
                 <CardTitle className="flex items-center gap-3 text-white text-xl font-semibold">
-                  <div className="p-2 bg-blue-500/20 rounded-xl">
-                    <Calendar className="h-5 w-5 text-blue-400" />
+                  <div className="p-2 bg-cyan-500/20 rounded-xl">
+                    <Calendar className="h-5 w-5 text-cyan-400" />
                   </div>
                   5-Day Forecast
                 </CardTitle>
@@ -691,7 +691,7 @@ export default function WeatherDashboard() {
                         />
                         <div className="text-center sm:text-left">
                           <div className="font-semibold text-white capitalize text-lg mb-1">{day.description}</div>
-                          <div className="text-sm text-cyan-300 bg-cyan-500/10 px-3 py-1 rounded-full inline-block">
+                          <div className="text-sm text-violet-300 bg-violet-500/10 px-3 py-1 rounded-full inline-block">
                             {day.precipitation}% chance of rain
                           </div>
                         </div>
@@ -730,8 +730,8 @@ export default function WeatherDashboard() {
               <Card className="bg-white/10 backdrop-blur-lg border-white/20 rounded-2xl shadow-xl">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3 text-white text-xl font-semibold">
-                    <div className="p-2 bg-emerald-500/20 rounded-xl">
-                      <TrendingUp className="h-5 w-5 text-emerald-400" />
+                    <div className="p-2 bg-pink-500/20 rounded-xl">
+                      <TrendingUp className="h-5 w-5 text-pink-400" />
                     </div>
                     Temperature Trends
                   </CardTitle>
@@ -744,11 +744,11 @@ export default function WeatherDashboard() {
                     </div>
                     <div className="flex justify-between items-center p-4 rounded-xl bg-white/5">
                       <span className="text-gray-300 font-medium">Today's High</span>
-                      <span className="text-xl font-semibold text-orange-300">{forecast[0]?.high || currentWeather.temperature + 3}°C</span>
+                      <span className="text-xl font-semibold text-amber-300">{forecast[0]?.high || currentWeather.temperature + 3}°C</span>
                     </div>
                     <div className="flex justify-between items-center p-4 rounded-xl bg-white/5">
                       <span className="text-gray-300 font-medium">Today's Low</span>
-                      <span className="text-xl font-semibold text-cyan-300">{forecast[0]?.low || currentWeather.temperature - 5}°C</span>
+                      <span className="text-xl font-semibold text-violet-300">{forecast[0]?.low || currentWeather.temperature - 5}°C</span>
                     </div>
                     <div className="mt-8 p-4 rounded-xl bg-white/5">
                       <div className="flex justify-between text-sm text-gray-300 mb-3">
@@ -768,19 +768,19 @@ export default function WeatherDashboard() {
               <Card className="bg-white/10 backdrop-blur-lg border-white/20 rounded-2xl shadow-xl">
                 <CardHeader>
                   <CardTitle className="flex items-center gap-3 text-white text-xl font-semibold">
-                    <div className="p-2 bg-cyan-500/20 rounded-xl">
-                      <Activity className="h-5 w-5 text-cyan-400" />
+                    <div className="p-2 bg-violet-500/20 rounded-xl">
+                      <Activity className="h-5 w-5 text-violet-400" />
                     </div>
                     Weather Insights
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="space-y-6 p-6 sm:p-8">
-                  <div className="p-5 rounded-2xl bg-emerald-500/10 border border-emerald-400/30 hover:bg-emerald-500/15 transition-colors duration-300">
+                  <div className="p-5 rounded-2xl bg-pink-500/10 border border-pink-400/30 hover:bg-pink-500/15 transition-colors duration-300">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="p-2 bg-emerald-500/20 rounded-lg">
-                        <Thermometer className="h-4 w-4 text-emerald-400" />
+                      <div className="p-2 bg-pink-500/20 rounded-lg">
+                        <Thermometer className="h-4 w-4 text-pink-400" />
                       </div>
-                      <span className="font-semibold text-emerald-300">Temperature Analysis</span>
+                      <span className="font-semibold text-pink-300">Temperature Analysis</span>
                     </div>
                     <p className="text-sm text-gray-300 leading-relaxed">
                       {currentWeather.temperature > 25 ? 'Warm conditions ideal for outdoor activities' :
@@ -789,12 +789,12 @@ export default function WeatherDashboard() {
                     </p>
                   </div>
                   
-                  <div className="p-5 rounded-2xl bg-cyan-500/10 border border-cyan-400/30 hover:bg-cyan-500/15 transition-colors duration-300">
+                  <div className="p-5 rounded-2xl bg-violet-500/10 border border-violet-400/30 hover:bg-violet-500/15 transition-colors duration-300">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="p-2 bg-cyan-500/20 rounded-lg">
-                        <Wind className="h-4 w-4 text-cyan-400" />
+                      <div className="p-2 bg-violet-500/20 rounded-lg">
+                        <Wind className="h-4 w-4 text-violet-400" />
                       </div>
-                      <span className="font-semibold text-cyan-300">Wind Conditions</span>
+                      <span className="font-semibold text-violet-300">Wind Conditions</span>
                     </div>
                     <p className="text-sm text-gray-300 leading-relaxed">
                       {currentWeather.windSpeed > 20 ? 'Strong winds - secure loose objects' :
@@ -803,12 +803,12 @@ export default function WeatherDashboard() {
                     </p>
                   </div>
 
-                  <div className="p-5 rounded-2xl bg-blue-500/10 border border-blue-400/30 hover:bg-blue-500/15 transition-colors duration-300">
+                  <div className="p-5 rounded-2xl bg-cyan-500/10 border border-cyan-400/30 hover:bg-cyan-500/15 transition-colors duration-300">
                     <div className="flex items-center gap-3 mb-3">
-                      <div className="p-2 bg-blue-500/20 rounded-lg">
-                        <Droplets className="h-4 w-4 text-blue-400" />
+                      <div className="p-2 bg-cyan-500/20 rounded-lg">
+                        <Droplets className="h-4 w-4 text-cyan-400" />
                       </div>
-                      <span className="font-semibold text-blue-300">Humidity Impact</span>
+                      <span className="font-semibold text-cyan-300">Humidity Impact</span>
                     </div>
                     <p className="text-sm text-gray-300 leading-relaxed">
                       {currentWeather.humidity > 70 ? 'High humidity - may feel warmer than actual temperature' :
@@ -824,8 +824,8 @@ export default function WeatherDashboard() {
             <Card className="bg-white/10 backdrop-blur-lg border-white/20 rounded-2xl shadow-xl">
               <CardHeader>
                 <CardTitle className="flex items-center gap-3 text-white text-xl font-semibold">
-                  <div className="p-2 bg-teal-500/20 rounded-xl">
-                    <TrendingUp className="h-5 w-5 text-teal-400" />
+                  <div className="p-2 bg-amber-500/20 rounded-xl">
+                    <TrendingUp className="h-5 w-5 text-amber-400" />
                   </div>
                   Historical Weather Comparison
                 </CardTitle>
@@ -844,14 +844,14 @@ export default function WeatherDashboard() {
                     <div className="text-3xl font-bold text-gray-300 mb-2">
                       {currentWeather.temperature - 3}°C
                     </div>
-                    <div className="text-sm text-emerald-400 font-medium bg-emerald-500/10 px-3 py-1 rounded-full">+3° warmer</div>
+                    <div className="text-sm text-pink-400 font-medium bg-pink-500/10 px-3 py-1 rounded-full">+3° warmer</div>
                   </div>
                   <div className="text-center p-6 rounded-2xl bg-white/5 hover:bg-white/10 transition-colors duration-300">
                     <div className="text-sm text-gray-400 mb-3 font-medium">Last Year</div>
                     <div className="text-3xl font-bold text-gray-300 mb-2">
                       {currentWeather.temperature + 2}°C
                     </div>
-                    <div className="text-sm text-cyan-400 font-medium bg-cyan-500/10 px-3 py-1 rounded-full">-2° cooler</div>
+                    <div className="text-sm text-violet-400 font-medium bg-violet-500/10 px-3 py-1 rounded-full">-2° cooler</div>
                   </div>
                 </div>
               </CardContent>
@@ -861,9 +861,9 @@ export default function WeatherDashboard() {
 
         {/* Status Indicator */}
         <div className="mt-12 text-center">
-          <Badge className="bg-emerald-500/20 text-emerald-300 border-emerald-400/30 px-6 py-3 rounded-full text-base font-medium">
+          <Badge className="bg-pink-500/20 text-pink-300 border-pink-400/30 px-6 py-3 rounded-full text-base font-medium">
             <div className="flex items-center gap-2">
-              <div className="w-3 h-3 bg-emerald-400 rounded-full animate-pulse"></div>
+              <div className="w-3 h-3 bg-pink-400 rounded-full animate-pulse"></div>
               Live Weather Data Active
             </div>
           </Badge>
