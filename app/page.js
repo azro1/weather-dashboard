@@ -292,7 +292,7 @@ export default function WeatherDashboard() {
             <p className="text-gray-300 mb-6 leading-relaxed">{error}</p>
             <Button 
               onClick={() => fetchWeatherData('New York')}
-              className="px-6 bg-gradient-to-r from-emerald-500 to-cyan-600 hover:from-emerald-600 hover:to-cyan-700 rounded-xl font-medium text-white"
+              className="px-6 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 rounded-xl font-medium text-white"
             >
               Try Again
             </Button>
