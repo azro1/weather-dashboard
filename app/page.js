@@ -267,7 +267,7 @@ export default function WeatherDashboard() {
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-emerald-900 to-teal-800 flex items-center justify-center p-4">
         <div className="text-center max-w-md mx-auto">
           <div className="relative">
             <div className="animate-spin rounded-full h-20 w-20 border-4 border-emerald-500 border-t-transparent mx-auto mb-8"></div>
@@ -282,7 +282,7 @@ export default function WeatherDashboard() {
 
   if (error) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-blue-900 to-indigo-900 flex items-center justify-center p-4">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-emerald-900 to-teal-800 flex items-center justify-center p-4">
         <Card className="max-w-lg bg-white/10 backdrop-blur-lg border-white/20 rounded-2xl shadow-2xl">
           <CardContent className="p-8 text-center">
             <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
