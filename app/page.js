@@ -288,8 +288,8 @@ export default function WeatherDashboard() {
             <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
               <AlertTriangle className="h-8 w-8 text-red-400" />
             </div>
-            <h2 className="text-2xl font-bold mb-4 text-white">Weather Data Error</h2>
-            <p className="text-gray-300 mb-6 leading-relaxed">{error}</p>
+            <h2 className="text-2xl font-bold mb-2 text-white">Weather Data Error</h2>
+            <p className="text-gray-300 mb-6">{error}</p>
             <Button 
               onClick={() => fetchWeatherData('New York')}
               className="px-6 bg-gradient-to-r from-emerald-500 to-teal-600 hover:from-emerald-600 hover:to-teal-700 rounded-xl font-medium text-white"
